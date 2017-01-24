@@ -22,10 +22,11 @@ namespace WpfApplication1
     {
         public MainWindow()
         {
-            InitializeComponent();
-           // Akcje akcje = new Akcje(textBox, textBox1, "http://www.bankier.pl/gielda/notowania/akcje");
-            Akcje indeksy= new Akcje(textBox, textBox1, "http://www.bankier.pl/gielda/notowania/indeksy-gpw");
-
+            // InitializeComponent();
+            // Akcje akcje = new Akcje(textBox, textBox1, "http://www.bankier.pl/gielda/notowania/akcje");
+            //Akcje indeksy= new Akcje(textBox, textBox1, "http://www.bankier.pl/gielda/notowania/indeksy-gpw");
+            Window2 window = new Window2();
+            window.Show();
         }
 
     }
