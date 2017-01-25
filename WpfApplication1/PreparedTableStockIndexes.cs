@@ -25,5 +25,10 @@ namespace WpfApplication1
             columnsForStockIndexes.addName("Min 1R:");
             columnsForStockIndexes.addName("System notowań:");
         }
+
+        public NameOfColums ColumnsForStockIndexes
+        {
+            get { return columnsForStockIndexes; }
+        }
     }
 }

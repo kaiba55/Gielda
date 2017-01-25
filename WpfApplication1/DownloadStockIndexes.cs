@@ -57,5 +57,10 @@ namespace WpfApplication1
 
         }
 
+        public ListOfStockIndex ListOftockIndexes
+        {
+            get { return listOftockIndexes; }
+        }
+
     }
 }

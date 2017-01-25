@@ -24,5 +24,10 @@ namespace WpfApplication1
             columnsForActions.addName("Min 1R:");
             columnsForActions.addName("System notowań:");
         }
+
+        public NameOfColums ColumnsForActions
+        {
+            get { return columnsForActions; }
+        }
     }
 }
