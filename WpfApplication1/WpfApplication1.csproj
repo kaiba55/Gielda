@@ -59,6 +59,14 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Action.cs" />
+    <Compile Include="DownloadAction.cs" />
+    <Compile Include="DownloadStockIndexes.cs" />
+    <Compile Include="ListOfAction.cs" />
+    <Compile Include="ListOfStockIndex.cs" />
+    <Compile Include="NameOfColums.cs" />
+    <Compile Include="PreparedTableAction.cs" />
+    <Compile Include="PreparedTableStockIndexes.cs" />
+    <Compile Include="StockIndex.cs" />
     <Compile Include="Window2.xaml.cs">
       <DependentUpon>Window2.xaml</DependentUpon>
     </Compile>

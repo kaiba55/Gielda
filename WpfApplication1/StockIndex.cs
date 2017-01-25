@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
-using System.Windows.Controls;
 
 namespace WpfApplication1
 {
-    //akcje stąd http://www.bankier.pl/gielda/notowania/akcje
-    class Action
+    //indeks gieldowy
+    //dotyczy http://www.bankier.pl/gielda/notowania/indeksy-gpw
+    class StockIndex
     {
         private string name;
         private double value;
@@ -21,7 +20,7 @@ namespace WpfApplication1
         private double moneyTurnover;
         private string time;
 
-        public Action(string name, List<double> listOfArguments, string time)
+        public StockIndex(string name, List<double> listOfArguments, string time)
         {
             this.name = name;
             this.value = listOfArguments[0];
