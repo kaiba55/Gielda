@@ -10,78 +10,13 @@ namespace WpfApplication1
     class DownloadStockIndexes
     {
         private ListOfStockIndex listOftockIndexes;
+        private Validater validator;
 
         public DownloadStockIndexes()
         {
             listOftockIndexes = new ListOfStockIndex();
+            validator = new Validater();
         }
-
-        public string normalizeNameOfIndex(HtmlNode node)
-        {
-            return node.InnerHtml.ToString();
-        }
-
-        public double normalizeValue(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Replace("&nbsp;", "");
-            return Convert.ToDouble(temp);
-        }
-
-        public double normalizeChange(HtmlNode node)
-        {
-            return Convert.ToDouble(node.InnerHtml.ToString());
-        }
-
-        public double normalizeChangePercent(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Remove(temp.Length - 1);
-            return Convert.ToDouble(temp);
-        }
-
-        public double normalizeNumberofTransaction(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Replace("&nbsp;", "");
-            return Convert.ToDouble(temp);
-        }
-
-        public double normalizeMoneyTurnover(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Replace("&nbsp;", "");
-            return Convert.ToDouble(temp);
-        }
-
-        public double normalizeOpening(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Replace("&nbsp;", "");
-            return Convert.ToDouble(temp);
-        }
-
-        public double normalizeMax(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Replace("&nbsp;", "");
-            return Convert.ToDouble(temp);
-        }
-
-        public double normalizeMin(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Replace("&nbsp;", "");
-            return Convert.ToDouble(temp);
-        }
-
-        public string normalizeTime(HtmlNode node)
-        {
-            string temp = node.InnerHtml.ToString();
-            temp = temp.Replace("&nbsp;", "");
-            return temp;
-        }
-
 
         public void download()
         {
@@ -91,9 +26,9 @@ namespace WpfApplication1
 
             //przygotowanie danych dotyczacych akcji
             HtmlNode[] nameOfIndex = document.DocumentNode.SelectNodes("//td[@class='colWalor textNowrap']//a").ToArray();//inkrementowany co 2
-            HtmlNode[] value = document.DocumentNode.SelectNodes("//td[@class='colKurs change  up']").ToArray();
-            HtmlNode[] change = document.DocumentNode.SelectNodes("//td[@class='colZmiana change  up']").ToArray();
-            HtmlNode[] changePercent = document.DocumentNode.SelectNodes("//td[@class='colZmianaProcentowa change  up']").ToArray();
+            HtmlNode[] value = document.DocumentNode.SelectNodes("//td[@class='colKurs change  up' or @class='colKurs change  down' or @class='colKurs change ']").ToArray();
+            HtmlNode[] change = document.DocumentNode.SelectNodes("//td[@class='colZmiana change  up' or @class='colZmiana change  down' or @class='colZmiana change ']").ToArray();
+            HtmlNode[] changePercent = document.DocumentNode.SelectNodes("//td[@class='colZmianaProcentowa change  up' or @class='colZmianaProcentowa change  down' or @class='colZmianaProcentowa change ']").ToArray();
             HtmlNode[] numberOfTransaction = document.DocumentNode.SelectNodes("//td[@class='colLiczbaTransakcji']").ToArray();
             HtmlNode[] moneyTurnover = document.DocumentNode.SelectNodes("//td[@class='colObrot']").ToArray();
             HtmlNode[] opening = document.DocumentNode.SelectNodes("//td[@class='colOtwarcie']").ToArray();
@@ -102,19 +37,19 @@ namespace WpfApplication1
             HtmlNode[] time = document.DocumentNode.SelectNodes("//td[@class='colAktualizacja']").ToArray();
 
 
-            //sformatowanie danych i dodanie na liste indeksow
-            for (int i = 0, j = 0; i < value.Length; ++i, j += 4)
+            //sformatowanie danych i dodanie na liste akcji
+            for (int i = 0, j = 0; j < nameOfIndex.Length; ++i, j += 2)
             {
                 List<double> arguments = new List<double>();
-                arguments.Add(normalizeValue(value[i]));
-                arguments.Add(normalizeChange(change[i]));
-                arguments.Add(normalizeChangePercent(changePercent[i]));
-                arguments.Add(normalizeNumberofTransaction(numberOfTransaction[i]));
-                arguments.Add(normalizeMoneyTurnover(moneyTurnover[i]));
-                arguments.Add(normalizeOpening(opening[i]));
-                arguments.Add(normalizeMax(max[i]));
-                arguments.Add(normalizeMax(min[i]));
-                StockIndex temp = new StockIndex(normalizeNameOfIndex(nameOfIndex[j]), arguments, normalizeTime(time[i]));
+                arguments.Add(validator.validateValue(value[i]));
+                arguments.Add(validator.validateChange(change[i]));
+                arguments.Add(validator.validateChangePercent(changePercent[i]));
+                arguments.Add(validator.validateNumberofTransaction(numberOfTransaction[i]));
+                arguments.Add(validator.validateMoneyTurnover(moneyTurnover[i]));
+                arguments.Add(validator.validateOpening(opening[i]));
+                arguments.Add(validator.validateMax(max[i]));
+                arguments.Add(validator.validateMin(min[i]));
+                StockIndex temp = new StockIndex(validator.validateNameOfIndex(nameOfIndex[j]), arguments, validator.validateTime(time[i]));
                 listOftockIndexes.addStockIndex(temp);
             }
 
