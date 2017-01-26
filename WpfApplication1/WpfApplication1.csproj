@@ -62,12 +62,16 @@
     <Compile Include="ActionFactory.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataFactory.cs" />
+    <Compile Include="Debentures.cs" />
+    <Compile Include="DebenturesFactory.cs" />
     <Compile Include="DownloadAction.cs" />
     <Compile Include="DownloadData.cs" />
+    <Compile Include="DownloadDebentures.cs" />
     <Compile Include="DownloadStockIndexes.cs" />
     <Compile Include="IDownloadable.cs" />
     <Compile Include="ListOfAction.cs" />
     <Compile Include="ListOfData.cs" />
+    <Compile Include="ListOfDebentures.cs" />
     <Compile Include="ListOfStockIndex.cs" />
     <Compile Include="NameOfColums.cs" />
     <Compile Include="PreparedTableAction.cs" />

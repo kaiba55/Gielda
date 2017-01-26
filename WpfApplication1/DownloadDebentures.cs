@@ -7,17 +7,16 @@ using HtmlAgilityPack;
 
 namespace WpfApplication1
 {
-    class DownloadStockIndexes : DownloadData,IDownloadable
-    { 
-        public DownloadStockIndexes():base()
+    class DownloadDebentures : DownloadData, IDownloadable
+    {
+        public DownloadDebentures():base()
         {
-            listData = new ListOfStockIndex();
-            factory = new StockIndexFactory();
+            listData = new ListOfDebentures();
+            factory = new DebenturesFactory();
         }
-
         public void download()
         {
-            string url = "http://www.bankier.pl/gielda/notowania/akcje";
+            string url = "http://www.bankier.pl/gielda/notowania/obligacje";
             HtmlWeb web = new HtmlWeb();
             HtmlDocument document = web.Load(url);
 
