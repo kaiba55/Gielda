@@ -10,6 +10,8 @@ namespace WpfApplication1
     {
         protected ListOfData listData;
         protected Validater validator;
+        protected DataFactory factory;
+
         public DownloadData()
         {
             validator = new Validater();
