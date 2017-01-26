@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WpfApplication1
 {
-    class ListOfAction:ListOfData
+    interface IDownloadable
     {
-
+        void download();
     }
 }

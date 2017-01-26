@@ -6,17 +6,8 @@ using System.Threading.Tasks;
 
 namespace WpfApplication1
 {
-    class ListOfStockIndex
+    class ListOfStockIndex:ListOfData
     {
-        List<StockIndex> listOfStockIndex;
 
-        public ListOfStockIndex()
-        {
-            listOfStockIndex = new List<StockIndex>();
-        }
-        public void addStockIndex(StockIndex stockIndex)
-        {
-            listOfStockIndex.Add(stockIndex);
-        }
     }
 }

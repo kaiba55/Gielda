@@ -59,9 +59,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Action.cs" />
+    <Compile Include="Data.cs" />
     <Compile Include="DownloadAction.cs" />
+    <Compile Include="DownloadData.cs" />
     <Compile Include="DownloadStockIndexes.cs" />
+    <Compile Include="IDownloadable.cs" />
     <Compile Include="ListOfAction.cs" />
+    <Compile Include="ListOfData.cs" />
     <Compile Include="ListOfStockIndex.cs" />
     <Compile Include="NameOfColums.cs" />
     <Compile Include="PreparedTableAction.cs" />

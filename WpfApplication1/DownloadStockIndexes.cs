@@ -7,7 +7,7 @@ using HtmlAgilityPack;
 
 namespace WpfApplication1
 {
-    class DownloadStockIndexes
+    class DownloadStockIndexes : IDownloadable
     {
         private ListOfStockIndex listOftockIndexes;
         private Validater validator;
@@ -50,7 +50,7 @@ namespace WpfApplication1
                 arguments.Add(validator.validateMax(max[i]));
                 arguments.Add(validator.validateMin(min[i]));
                 StockIndex temp = new StockIndex(validator.validateNameOfIndex(nameOfIndex[j]), arguments, validator.validateTime(time[i]));
-                listOftockIndexes.addStockIndex(temp);
+                listOftockIndexes.addData(temp);
             }
 
             HtmlNode timeOfUpdate = document.DocumentNode.SelectNodes("//time[@class='time']").First();
