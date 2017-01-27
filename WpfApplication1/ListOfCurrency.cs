@@ -8,7 +8,7 @@ namespace WpfApplication1
 {
     class ListOfCurrency
     {
-        List<Currency> listCurrenct;
+        private List<Currency> listCurrenct;
         public ListOfCurrency()
         {
             listCurrenct = new List<Currency>();

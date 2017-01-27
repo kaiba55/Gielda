@@ -66,6 +66,7 @@
     <Compile Include="Debentures.cs" />
     <Compile Include="DebenturesFactory.cs" />
     <Compile Include="DownloadAction.cs" />
+    <Compile Include="DownloadCurrency.cs" />
     <Compile Include="DownloadData.cs" />
     <Compile Include="DownloadDebentures.cs" />
     <Compile Include="DownloadStockIndexes.cs" />
