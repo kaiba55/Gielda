@@ -18,5 +18,11 @@ namespace WpfApplication1
         {
             listCurrenct.Add(currency);
         }
+
+        public List<Currency> ListCurrenct
+        {
+            get { return listCurrenct; }
+        }
+
     }
 }
