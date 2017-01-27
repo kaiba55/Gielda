@@ -14,7 +14,7 @@ namespace WpfApplication1
             listCurrenct = new List<Currency>();
         }
 
-        void add(Currency currency)
+        public void addCurrency(Currency currency)
         {
             listCurrenct.Add(currency);
         }

@@ -7,7 +7,7 @@ using HtmlAgilityPack;
 
 namespace WpfApplication1
 {
-    class Validater
+    class DataValidater
     {
         public string validateNameOfIndex(HtmlNode node)
         {

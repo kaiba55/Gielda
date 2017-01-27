@@ -9,12 +9,12 @@ namespace WpfApplication1
     class DownloadData
     {
         protected ListOfData listData;
-        protected Validater validator;
+        protected DataValidater validator;
         protected DataFactory factory;
 
         public DownloadData()
         {
-            validator = new Validater();
+            validator = new DataValidater();
         }
         public ListOfData ListOfData
         {

@@ -25,7 +25,7 @@ namespace WpfApplication1
             InitializeComponent();
             /*Window2 window = new Window2();
             window.Show();*/
-            DownloadAction down = new DownloadAction();
+            IDownloadable down = new DownloadCurrency();
             down.download();
         }
     }
