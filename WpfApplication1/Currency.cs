@@ -9,6 +9,7 @@ namespace WpfApplication1
     class Currency
     {
         private string name;
+        private string country;
         private string symbol;
         private double purchaseValue;
         private double purchaseChange;
@@ -17,9 +18,10 @@ namespace WpfApplication1
         private double saleChange;
         private double saleChangePercent;
 
-        public Currency(string name, string symbol, List<double>arguments)
+        public Currency(string name,string country, string symbol, List<double>arguments)
         {
             this.name = name;
+            this.country = country;
             this.symbol = symbol;
             purchaseValue = arguments[0];
             purchaseChange= arguments[1];
