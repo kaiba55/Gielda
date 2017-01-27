@@ -22,7 +22,6 @@ namespace WpfApplication1
             HtmlWeb web = new HtmlWeb();
             HtmlDocument document = web.Load(url);
 
-            
             HtmlNode[] country = document.DocumentNode.SelectNodes("//td[@class='colWalor']//a").ToArray();
             HtmlNode[] symbol = document.DocumentNode.SelectNodes("//td[@class='textAlignRight']").ToArray();//z tego mamy symbol
             HtmlNode[] value = document.DocumentNode.SelectNodes("//td[@class='colKurs textAlignRight change  down' or @class='colKurs textAlignRight change  up' or @class='colKurs textAlignRight change ']").ToArray();//parzyste to zakupu, nieparzyste sprzedazy, czyli co 2

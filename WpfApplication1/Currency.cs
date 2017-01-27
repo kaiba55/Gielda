@@ -30,5 +30,37 @@ namespace WpfApplication1
             saleChange = arguments[4];
             saleChangePercent = arguments[5];
         }
+        public string Name
+        {
+            get { return name; }
+        }
+        public string Country
+        {
+            get { return country; }
+        }
+        public string Symbol
+        {
+            get { return symbol; }
+        }
+        public double PurchaseValue
+        {
+            get { return purchaseValue; }
+        }
+        private double PurchaseChange
+        {
+            get { return purchaseChange; }
+        }
+        private double SaleValue
+        {
+            get { return saleValue; }
+        }
+        private double SaleChange
+        {
+            get { return saleChange; }
+        }
+        private double SaleChangePercent
+        {
+            get { return saleChangePercent; }
+        }
     }
 }

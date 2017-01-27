@@ -31,5 +31,41 @@ namespace WpfApplication1
             this.time = time;
         }
 
+        public string Name
+        {
+            get{ return name; }
+        }       
+        public double Value
+        {
+            get { return value; }
+        }
+        public double Change
+        {
+            get { return change; }
+        }
+        public double ChangePercent
+        {
+            get { return changePercent; }
+        }
+        public double Opening
+        {
+            get { return opening; }
+        }
+        public double Max
+        {
+            get { return max; }
+        }
+        public double Min
+        {
+            get { return min; }
+        }
+        public double MoneyTurnover
+        {
+            get { return moneyTurnover; }
+        }
+        public string Time
+        {
+            get { return time; }
+        }
     }
 }
