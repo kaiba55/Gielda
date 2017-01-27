@@ -60,6 +60,7 @@
     </ApplicationDefinition>
     <Compile Include="Action.cs" />
     <Compile Include="ActionFactory.cs" />
+    <Compile Include="Currency.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataFactory.cs" />
     <Compile Include="Debentures.cs" />
@@ -70,6 +71,7 @@
     <Compile Include="DownloadStockIndexes.cs" />
     <Compile Include="IDownloadable.cs" />
     <Compile Include="ListOfAction.cs" />
+    <Compile Include="ListOfCurrency.cs" />
     <Compile Include="ListOfData.cs" />
     <Compile Include="ListOfDebentures.cs" />
     <Compile Include="ListOfStockIndex.cs" />
