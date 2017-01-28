@@ -19,5 +19,10 @@ namespace WpfApplication1
         {
             nameOfColumsAction.Add(name);
         }
+
+        public List<string> NameOfColumsAction
+        {
+            get { return nameOfColumsAction; }
+        }
     }
 }

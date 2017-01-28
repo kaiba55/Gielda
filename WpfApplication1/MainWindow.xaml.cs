@@ -20,6 +20,7 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private PreparedTableAction table;
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -32,10 +33,13 @@ namespace WpfApplication1
 
         public MainWindow()
         {
+            table = new PreparedTableAction();
             InitializeComponent();
             CenterWindowOnScreen();
-            IDownloadable down = new DownloadCurrency();
+            DownloadAction down = new DownloadAction();
             down.download();
+            table.preparedTable(dataGrid, down.ListData);
+            
         }
     }
 }

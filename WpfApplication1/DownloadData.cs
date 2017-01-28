@@ -16,7 +16,7 @@ namespace WpfApplication1
         {
             validator = new DataValidater();
         }
-        public ListOfData ListOfData
+        public ListOfData ListData
         {
             get { return listData; }
         }

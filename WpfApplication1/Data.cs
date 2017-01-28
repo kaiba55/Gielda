@@ -14,6 +14,7 @@ namespace WpfApplication1
         protected double change;
         protected double changePercent;
         protected double opening;
+        protected double numberOfTransaction;
         protected double max;
         protected double min;
         protected double moneyTurnover;
@@ -24,11 +25,12 @@ namespace WpfApplication1
             this.value = listOfArguments[0];
             this.change = listOfArguments[1];
             this.changePercent = listOfArguments[2];
-            this.opening = listOfArguments[3];
-            this.max = listOfArguments[4];
-            this.min = listOfArguments[5];
-            this.moneyTurnover = listOfArguments[6];
-            this.time = time;
+            this.numberOfTransaction = listOfArguments[3];
+            this.opening = listOfArguments[4];
+            this.max = listOfArguments[5];
+            this.min = listOfArguments[6];
+            this.moneyTurnover = listOfArguments[7];
+            this.time = time; 
         }
 
         public string Name
@@ -66,6 +68,10 @@ namespace WpfApplication1
         public string Time
         {
             get { return time; }
+        }
+        public double NumberOfTransaction
+        {
+            get { return numberOfTransaction; }
         }
     }
 }

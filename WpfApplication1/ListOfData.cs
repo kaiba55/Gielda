@@ -17,5 +17,15 @@ namespace WpfApplication1
         {
             listData.Add(data);
         }
+
+        public int sizeOfList()
+        {
+            return listData.Count;
+        }
+
+        public List<Data> ListData
+        {
+            get { return listData; }
+        }
     }
 }
