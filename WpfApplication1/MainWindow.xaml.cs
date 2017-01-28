@@ -20,9 +20,20 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private void CenterWindowOnScreen()
+        {
+            double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
+            double screenHeight = System.Windows.SystemParameters.PrimaryScreenHeight;
+            double windowWidth = this.Width;
+            double windowHeight = this.Height;
+            this.Left = (screenWidth / 2) - (windowWidth / 2);
+            this.Top = (screenHeight / 2) - (windowHeight / 2);
+        }
+
         public MainWindow()
         {
             InitializeComponent();
+            CenterWindowOnScreen();
             /*Window2 window = new Window2();
             window.Show();*/
             IDownloadable down = new DownloadCurrency();
