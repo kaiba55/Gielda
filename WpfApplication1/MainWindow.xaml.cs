@@ -34,8 +34,6 @@ namespace WpfApplication1
         {
             InitializeComponent();
             CenterWindowOnScreen();
-            /*Window2 window = new Window2();
-            window.Show();*/
             IDownloadable down = new DownloadCurrency();
             down.download();
         }
