@@ -7,7 +7,7 @@ using HtmlAgilityPack;
 
 namespace WpfApplication1
 {
-    class DownloadCurrency : IDownloadable
+    class DownloadCurrency
     {
         private ListOfCurrency listCurrency;
         private CurrencyValidator validator;

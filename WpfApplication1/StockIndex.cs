@@ -10,9 +10,21 @@ namespace WpfApplication1
     //dotyczy http://www.bankier.pl/gielda/notowania/indeksy-gpw
     class StockIndex:Data
     {
-        public StockIndex(string name, List<double> listOfArguments, string time):base(name,listOfArguments,time)
+        public StockIndex()
         {
 
+        }
+        public StockIndex(string name, List<double> listOfArguments, string time)
+        {
+            this.name = name;
+            this.value = listOfArguments[0];
+            this.change = listOfArguments[1];
+            this.changePercent = listOfArguments[2];
+            this.opening = listOfArguments[3];
+            this.max = listOfArguments[4];
+            this.min = listOfArguments[5];
+            this.moneyTurnover = listOfArguments[6];
+            this.time = time;
         }
     }
 }

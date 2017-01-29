@@ -8,6 +8,9 @@ namespace WpfApplication1
 {
     class ListOfStockIndex:ListOfData
     {
+        public ListOfStockIndex()
+        {
 
+        }
     }
 }

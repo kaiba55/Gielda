@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WpfApplication1
+﻿namespace WpfApplication1
 {
-    interface IDownloadable
+    internal interface IDownloadable
     {
-        void download();
+        void download(ListOfData list);
     }
 }

@@ -19,6 +19,11 @@ namespace WpfApplication1
         protected double min;
         protected double moneyTurnover;
         protected string time;
+
+        public Data()
+        {
+
+        }
         public Data(string name, List<double> listOfArguments, string time)
         {
             this.name = name;

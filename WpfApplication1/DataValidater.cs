@@ -11,7 +11,7 @@ namespace WpfApplication1
     {
         public string validateNameOfIndex(HtmlNode node)
         {
-            return node.InnerHtml.ToString();
+            return node.InnerText.ToString().Trim();
         }
 
         public double validateValue(HtmlNode node)

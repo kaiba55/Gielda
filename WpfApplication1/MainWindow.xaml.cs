@@ -20,7 +20,9 @@ namespace WpfApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private PreparedTableAction table;
+        private List<IPreparedTable> table;
+        private List<ListOfData> list;
+        private List<IDownloadable> downloader;
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -31,15 +33,59 @@ namespace WpfApplication1
             this.Top = (screenHeight / 2) - (windowHeight / 2);
         }
 
+        public void preparedData()
+        {
+            list = new List<ListOfData>();
+            list.Add(new ListOfAction());
+            list.Add(new ListOfStockIndex());
+            list.Add(new ListOfDebentures());
+
+            table =new List<IPreparedTable>();
+            table.Add(new TableAction());
+            table.Add(new TableStockIndex());
+            table.Add(new TableDebentures());
+
+            downloader = new List<IDownloadable>();
+            downloader.Add(new DownloadAction());
+            downloader.Add(new DownloadStockIndexes());
+            downloader.Add(new DownloadDebentures());
+            downloader[0].download(list[0]);
+            downloader[1].download(list[1]);
+            downloader[2].download(list[2]);
+        }
+
         public MainWindow()
         {
-            table = new PreparedTableAction();
+            preparedData();
             InitializeComponent();
-            CenterWindowOnScreen();
-            DownloadAction down = new DownloadAction();
-            down.download();
-            table.preparedTable(dataGrid, down.ListData);
-            
+            CenterWindowOnScreen();         
         }
+        private void OnTab1Selected(object sender, RoutedEventArgs e)
+        {
+            var tab = sender as TabItem;
+            if (tab != null)
+            {
+                table[0].preparedTable(dataGrid, list[0]);
+            }
+        }
+
+        private void OnTab2Selected(object sender, RoutedEventArgs e)
+        {
+            var tab = sender as TabItem;
+            if (tab != null)
+            {
+                table[1].preparedTable(dataGrid2, list[1]);
+            }
+        }
+
+        private void OnTab3Selected(object sender, RoutedEventArgs e)
+        {
+            var tab = sender as TabItem;
+            if (tab != null)
+            {
+                table[2].preparedTable(dataGrid3, list[2]);
+            }
+        }
+
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApplication1
 {
-    class ListOfData
+    abstract class ListOfData
     {
         protected List<Data> listData;
         public ListOfData()

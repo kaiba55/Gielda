@@ -7,26 +7,26 @@ using HtmlAgilityPack;
 
 namespace WpfApplication1
 {
-    class DownloadDebentures : DownloadData, IDownloadable
+    class DownloadDebentures : IDownloadable
     {
-        public DownloadDebentures():base()
+        private DataValidater validator;
+        private DataFactory factory;
+        public DownloadDebentures()
         {
-            listData = new ListOfDebentures();
+            validator = new DataValidater();
             factory = new DebenturesFactory();
         }
-        public void download()
+        public void download(ListOfData list)
         {
             string url = "http://www.bankier.pl/gielda/notowania/obligacje";
             HtmlWeb web = new HtmlWeb();
             HtmlDocument document = web.Load(url);
 
             //przygotowanie danych dotyczacych akcji
-            HtmlNode[] nameOfIndex = document.DocumentNode.SelectNodes("//td[@class='colWalor textNowrap']//a").ToArray();//inkrementowany co 2
+            HtmlNode[] nameOfIndex = document.DocumentNode.SelectNodes("//td[@class='colWalor textNowrap']").ToArray();//inkrementowany co 2
             HtmlNode[] value = document.DocumentNode.SelectNodes("//td[@class='colKurs change  up' or @class='colKurs change  down' or @class='colKurs change ']").ToArray();
             HtmlNode[] change = document.DocumentNode.SelectNodes("//td[@class='colZmiana change  up' or @class='colZmiana change  down' or @class='colZmiana change ']").ToArray();
             HtmlNode[] changePercent = document.DocumentNode.SelectNodes("//td[@class='colZmianaProcentowa change  up' or @class='colZmianaProcentowa change  down' or @class='colZmianaProcentowa change ']").ToArray();
-            HtmlNode[] numberOfTransaction = document.DocumentNode.SelectNodes("//td[@class='colLiczbaTransakcji']").ToArray();
-            HtmlNode[] moneyTurnover = document.DocumentNode.SelectNodes("//td[@class='colObrot']").ToArray();
             HtmlNode[] opening = document.DocumentNode.SelectNodes("//td[@class='colOtwarcie']").ToArray();
             HtmlNode[] max = document.DocumentNode.SelectNodes("//td[@class='calMaxi']").ToArray();
             HtmlNode[] min = document.DocumentNode.SelectNodes("//td[@class='calMini']").ToArray();
@@ -40,16 +40,13 @@ namespace WpfApplication1
                 arguments.Add(validator.validateValue(value[i]));
                 arguments.Add(validator.validateChange(change[i]));
                 arguments.Add(validator.validateChangePercent(changePercent[i]));
-                arguments.Add(validator.validateNumberofTransaction(numberOfTransaction[i]));
-                arguments.Add(validator.validateMoneyTurnover(moneyTurnover[i]));
                 arguments.Add(validator.validateOpening(opening[i]));
                 arguments.Add(validator.validateMax(max[i]));
                 arguments.Add(validator.validateMin(min[i]));
-                listData.addData(factory.produce(validator.validateNameOfIndex(nameOfIndex[j]), arguments, validator.validateTime(time[i])));
+                list.addData(factory.produce(validator.validateNameOfIndex(nameOfIndex[j]), arguments, validator.validateTime(time[i])));
             }
 
             HtmlNode timeOfUpdate = document.DocumentNode.SelectNodes("//time[@class='time']").First();
-
         }
     }
 }
