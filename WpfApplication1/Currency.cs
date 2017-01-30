@@ -46,19 +46,24 @@ namespace WpfApplication1
         {
             get { return purchaseValue; }
         }
-        private double PurchaseChange
+        public double PurchaseChange
         {
             get { return purchaseChange; }
         }
-        private double SaleValue
+
+        public double PurchaseChangePercent
+        {
+            get { return purchaseChangePercent; }
+        }
+        public double SaleValue
         {
             get { return saleValue; }
         }
-        private double SaleChange
+        public double SaleChange
         {
             get { return saleChange; }
         }
-        private double SaleChangePercent
+        public double SaleChangePercent
         {
             get { return saleChangePercent; }
         }

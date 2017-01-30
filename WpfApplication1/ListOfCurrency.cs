@@ -8,20 +8,20 @@ namespace WpfApplication1
 {
     class ListOfCurrency
     {
-        private List<Currency> listCurrenct;
+        private List<Currency> listCurrency;
         public ListOfCurrency()
         {
-            listCurrenct = new List<Currency>();
+            listCurrency = new List<Currency>();
         }
 
         public void addCurrency(Currency currency)
         {
-            listCurrenct.Add(currency);
+            listCurrency.Add(currency);
         }
 
         public List<Currency> ListCurrenct
         {
-            get { return listCurrenct; }
+            get { return listCurrency; }
         }
 
     }

@@ -9,14 +9,12 @@ namespace WpfApplication1
 {
     class DownloadCurrency
     {
-        private ListOfCurrency listCurrency;
         private CurrencyValidator validator;
         public DownloadCurrency()
         {
-            listCurrency = new ListOfCurrency();
             validator = new CurrencyValidator();
         }
-        public void download()
+        public void download(ListOfCurrency listCurrency)
         {
             string url = "http://www.bankier.pl/waluty/kursy-walut/nbp/kupno-sprzedaz";
             HtmlWeb web = new HtmlWeb();

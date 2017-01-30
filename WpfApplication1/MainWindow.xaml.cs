@@ -24,6 +24,11 @@ namespace WpfApplication1
         private List<ListOfData> list;
         private List<IDownloadable> downloader;
         private List<CalculationStatisticsForData> calc;
+
+        //do pobierania walut
+        TableCurrency tableCurrency;
+        ListOfCurrency listCurrency;
+        DownloadCurrency downCurrency;
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -32,6 +37,11 @@ namespace WpfApplication1
             double windowHeight = this.Height;
             this.Left = (screenWidth / 2) - (windowWidth / 2);
             this.Top = (screenHeight / 2) - (windowHeight / 2);
+        }
+
+        private void prepareCurrency()
+        {
+            tableCurrency.preparedTable(dataGrid4, listCurrency);
         }
 
         public void preparedData()
@@ -57,7 +67,13 @@ namespace WpfApplication1
             downloader.Add(new DownloadDebentures());
             downloader[0].download(list[0]);
             downloader[1].download(list[1]);
-            downloader[2].download(list[2]);     
+            downloader[2].download(list[2]);
+
+            //przygotowanie walut
+            tableCurrency = new TableCurrency();
+            listCurrency=new ListOfCurrency();
+            downCurrency = new DownloadCurrency();
+            downCurrency.download(listCurrency);   
         }
 
         void preparedStatisticForAction()
@@ -152,6 +168,15 @@ namespace WpfApplication1
             if (tab != null)
             {
                 prepareDebentures();
+            }
+        }
+
+        private void OnTab4Selected(object sender, RoutedEventArgs e)
+        {
+            var tab = sender as TabItem;
+            if (tab != null)
+            {
+                prepareCurrency();
             }
         }
 

@@ -100,6 +100,7 @@
     <Compile Include="ListOfStockIndex.cs" />
     <Compile Include="NameOfColums.cs" />
     <Compile Include="TableAction.cs" />
+    <Compile Include="TableCurrency.cs" />
     <Compile Include="TableDebentures.cs" />
     <Compile Include="TableStockIndex.cs" />
     <Compile Include="StockIndex.cs" />
