@@ -77,7 +77,10 @@
     </ApplicationDefinition>
     <Compile Include="Action.cs" />
     <Compile Include="ActionFactory.cs" />
-    <Compile Include="CalculationStatistics.cs" />
+    <Compile Include="CalculationStatisticsForDebentures.cs" />
+    <Compile Include="CalculationStatisticsForStockIndex.cs" />
+    <Compile Include="CalculationStatisticsForAction.cs" />
+    <Compile Include="CalculationStatisticsForData.cs" />
     <Compile Include="Currency.cs" />
     <Compile Include="CurrencyValidator.cs" />
     <Compile Include="Data.cs" />

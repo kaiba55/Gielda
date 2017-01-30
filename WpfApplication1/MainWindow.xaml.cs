@@ -23,7 +23,7 @@ namespace WpfApplication1
         private List<IPreparedTable> table;
         private List<ListOfData> list;
         private List<IDownloadable> downloader;
-        private CalculationStatistics calc;
+        private List<CalculationStatisticsForData> calc;
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -40,7 +40,11 @@ namespace WpfApplication1
             list.Add(new ListOfAction());
             list.Add(new ListOfStockIndex());
             list.Add(new ListOfDebentures());
-            calc = new CalculationStatistics();
+            calc = new List<CalculationStatisticsForData>();
+
+            calc.Add(new CalculationStatisticsForAction());
+            calc.Add(new CalculationStatisticsForStockIndex());
+            calc.Add(new CalculationStatisticsForDebentures());
 
             table =new List<IPreparedTable>();
             table.Add(new TableAction());
@@ -58,20 +62,29 @@ namespace WpfApplication1
 
         void preparedStatisticForAction()
         {
-            label11.Content = calc.maxValue(list[0].ListData);
-            label13.Content = calc.minValue(list[0].ListData);
+            label11.Content = calc[0].maxValue(list[0].ListData);
+            label13.Content = calc[0].minValue(list[0].ListData);
+            label23.Content= calc[0].maxChange(list[0].ListData);
+            label25.Content = calc[0].minChange(list[0].ListData);
+            label27.Content = calc[0].maxChangePercent(list[0].ListData);
+            label29.Content = calc[0].minChangePercent(list[0].ListData);
+            label31.Content = calc[0].maxOpening(list[0].ListData);
+            label33.Content = calc[0].minOpening(list[0].ListData);
+            label35.Content=calc[0].maxTransaction(list[0].ListData);
+            label37.Content = calc[0].maxMoneyTurnover(list[0].ListData);
+            label39.Content = calc[0].minMoneyTurnover(list[0].ListData);
         }
 
         void preparedStatisticForStockIndexes()
         {
-            label15.Content = calc.maxValue(list[1].ListData);
-            label17.Content = calc.minValue(list[1].ListData);
+            label15.Content = calc[1].maxValue(list[1].ListData);
+            label17.Content = calc[1].minValue(list[1].ListData);
         }
 
         void preparedStatisticForDebentures()
         {
-            label19.Content = calc.maxValue(list[2].ListData);
-            label21.Content = calc.minValue(list[2].ListData);
+            label19.Content = calc[2].maxValue(list[2].ListData);
+            label21.Content = calc[2].minValue(list[2].ListData);
         }
 
         public void prepareAction()
