@@ -23,6 +23,7 @@ namespace WpfApplication1
         private List<IPreparedTable> table;
         private List<ListOfData> list;
         private List<IDownloadable> downloader;
+        private CalculationStatistics calc;
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -39,6 +40,7 @@ namespace WpfApplication1
             list.Add(new ListOfAction());
             list.Add(new ListOfStockIndex());
             list.Add(new ListOfDebentures());
+            calc = new CalculationStatistics();
 
             table =new List<IPreparedTable>();
             table.Add(new TableAction());
@@ -51,25 +53,46 @@ namespace WpfApplication1
             downloader.Add(new DownloadDebentures());
             downloader[0].download(list[0]);
             downloader[1].download(list[1]);
-            downloader[2].download(list[2]);
+            downloader[2].download(list[2]);     
+        }
+
+        void preparedStatisticForAction()
+        {
+            label11.Content = calc.maxValue(list[0].ListData);
+            label13.Content = calc.minValue(list[0].ListData);
+        }
+
+        void preparedStatisticForStockIndexes()
+        {
+            label15.Content = calc.maxValue(list[1].ListData);
+            label17.Content = calc.minValue(list[1].ListData);
+        }
+
+        void preparedStatisticForDebentures()
+        {
+            label19.Content = calc.maxValue(list[2].ListData);
+            label21.Content = calc.minValue(list[2].ListData);
         }
 
         public void prepareAction()
         {    
             table[0].preparedTable(dataGrid, list[0]);
             label7.Content = list[0].TimeOfUpdate;
+            preparedStatisticForAction();
         }
 
         public void prepareStockIndexes()
         {
             table[1].preparedTable(dataGrid2, list[1]);
             label8.Content = list[1].TimeOfUpdate;
+            preparedStatisticForStockIndexes();
         }
 
         public void prepareDebentures()
         {
             table[2].preparedTable(dataGrid3, list[2]);
             label9.Content = list[2].TimeOfUpdate;
+            preparedStatisticForDebentures();
         }
 
         public MainWindow()
@@ -108,18 +131,18 @@ namespace WpfApplication1
         private void button_Click(object sender, RoutedEventArgs e)
         {
             downloader[0].download(list[0]);
-            prepareAction();
+            preparedStatisticForAction();
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             downloader[1].download(list[1]);
-            prepareStockIndexes();
+            preparedStatisticForStockIndexes();
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            downloader[2].download(list[2]);
+            downloader[2].download(list[2]);          
             prepareDebentures();
         }
     }
