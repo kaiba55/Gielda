@@ -79,12 +79,26 @@ namespace WpfApplication1
         {
             label15.Content = calc[1].maxValue(list[1].ListData);
             label17.Content = calc[1].minValue(list[1].ListData);
+            label42.Content = calc[1].maxChange(list[1].ListData);
+            label44.Content = calc[1].minChange(list[1].ListData);
+            label46.Content = calc[1].maxChangePercent(list[1].ListData);
+            label48.Content = calc[1].minChangePercent(list[1].ListData);
+            label50.Content = calc[1].maxOpening(list[1].ListData);
+            label52.Content = calc[1].minOpening(list[1].ListData);
+            label54.Content = calc[1].maxMoneyTurnover(list[1].ListData);
+            label56.Content = calc[1].minMoneyTurnover(list[1].ListData);
         }
 
         void preparedStatisticForDebentures()
         {
             label19.Content = calc[2].maxValue(list[2].ListData);
             label21.Content = calc[2].minValue(list[2].ListData);
+            label58.Content = calc[2].maxChange(list[2].ListData);
+            label60.Content = calc[2].minChange(list[2].ListData);
+            label62.Content = calc[2].maxChangePercent(list[2].ListData);
+            label64.Content = calc[2].minChangePercent(list[2].ListData);
+            label66.Content = calc[2].maxOpening(list[2].ListData);
+            label68.Content = calc[2].minOpening(list[2].ListData);
         }
 
         public void prepareAction()
