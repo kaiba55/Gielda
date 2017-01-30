@@ -23,12 +23,13 @@ namespace WpfApplication1
              HtmlWeb web = new HtmlWeb();
              HtmlDocument document = web.Load(url);
 
+            list.ListData.Clear();
             //przygotowanie danych dotyczacych akcji
             HtmlNode[] nameOfIndex = document.DocumentNode.SelectNodes("//td[@class='colWalor textNowrap']//a").ToArray();//inkrementowany co 2
             HtmlNode[] value = document.DocumentNode.SelectNodes("//td[@class='colKurs change  up' or @class='colKurs change  down' or @class='colKurs change ']").ToArray();
             HtmlNode[] change = document.DocumentNode.SelectNodes("//td[@class='colZmiana change  up' or @class='colZmiana change  down' or @class='colZmiana change ']").ToArray();
-             HtmlNode[] changePercent = document.DocumentNode.SelectNodes("//td[@class='colZmianaProcentowa change  up' or @class='colZmianaProcentowa change  down' or @class='colZmianaProcentowa change ']").ToArray();
-             HtmlNode[] moneyTurnover = document.DocumentNode.SelectNodes("//td[@class='colObrot']").ToArray();
+            HtmlNode[] changePercent = document.DocumentNode.SelectNodes("//td[@class='colZmianaProcentowa change  up' or @class='colZmianaProcentowa change  down' or @class='colZmianaProcentowa change ']").ToArray();
+            HtmlNode[] moneyTurnover = document.DocumentNode.SelectNodes("//td[@class='colObrot']").ToArray();
             HtmlNode[] opening = document.DocumentNode.SelectNodes("//td[@class='colOtwarcie']").ToArray();
             HtmlNode[] max = document.DocumentNode.SelectNodes("//td[@class='calMaxi']").ToArray();
             HtmlNode[] min = document.DocumentNode.SelectNodes("//td[@class='calMini']").ToArray();
@@ -49,7 +50,8 @@ namespace WpfApplication1
                  list.addData(factory.produce(validator.validateNameOfIndex(nameOfIndex[j]), arguments, validator.validateTime(time[i])));
              }
 
-             HtmlNode timeOfUpdate = document.DocumentNode.SelectNodes("//time[@class='time']").First();
+            HtmlNode timeOfUpdate = document.DocumentNode.SelectNodes("//time[@class='time']").First();
+            list.TimeOfUpdate = timeOfUpdate.InnerText.ToString().Substring(29);
         }
     }
 }

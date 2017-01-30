@@ -54,6 +54,24 @@ namespace WpfApplication1
             downloader[2].download(list[2]);
         }
 
+        public void prepareAction()
+        {    
+            table[0].preparedTable(dataGrid, list[0]);
+            label7.Content = list[0].TimeOfUpdate;
+        }
+
+        public void prepareStockIndexes()
+        {
+            table[1].preparedTable(dataGrid2, list[1]);
+            label8.Content = list[1].TimeOfUpdate;
+        }
+
+        public void prepareDebentures()
+        {
+            table[2].preparedTable(dataGrid3, list[2]);
+            label9.Content = list[2].TimeOfUpdate;
+        }
+
         public MainWindow()
         {
             preparedData();
@@ -65,7 +83,7 @@ namespace WpfApplication1
             var tab = sender as TabItem;
             if (tab != null)
             {
-                table[0].preparedTable(dataGrid, list[0]);
+                prepareAction();
             }
         }
 
@@ -74,7 +92,7 @@ namespace WpfApplication1
             var tab = sender as TabItem;
             if (tab != null)
             {
-                table[1].preparedTable(dataGrid2, list[1]);
+                prepareStockIndexes();
             }
         }
 
@@ -83,9 +101,26 @@ namespace WpfApplication1
             var tab = sender as TabItem;
             if (tab != null)
             {
-                table[2].preparedTable(dataGrid3, list[2]);
+                prepareDebentures();
             }
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            downloader[0].download(list[0]);
+            prepareAction();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            downloader[1].download(list[1]);
+            prepareStockIndexes();
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            downloader[2].download(list[2]);
+            prepareDebentures();
+        }
     }
 }

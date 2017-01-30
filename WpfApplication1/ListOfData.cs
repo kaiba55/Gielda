@@ -9,6 +9,7 @@ namespace WpfApplication1
     abstract class ListOfData
     {
         protected List<Data> listData;
+        protected string timeOfUpdate;
         public ListOfData()
         {
             listData = new List<Data>();
@@ -26,6 +27,12 @@ namespace WpfApplication1
         public List<Data> ListData
         {
             get { return listData; }
+        }
+
+        public string TimeOfUpdate
+        {
+            get { return timeOfUpdate; }
+            set { timeOfUpdate = value; }
         }
     }
 }

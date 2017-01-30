@@ -22,6 +22,7 @@ namespace WpfApplication1
             HtmlWeb web = new HtmlWeb();
             HtmlDocument document = web.Load(url);
 
+            list.ListData.Clear();
             //przygotowanie danych dotyczacych akcji
             HtmlNode[] nameOfIndex = document.DocumentNode.SelectNodes("//td[@class='colWalor textNowrap']").ToArray();//inkrementowany co 2
             HtmlNode[] value = document.DocumentNode.SelectNodes("//td[@class='colKurs change  up' or @class='colKurs change  down' or @class='colKurs change ']").ToArray();
@@ -31,7 +32,6 @@ namespace WpfApplication1
             HtmlNode[] max = document.DocumentNode.SelectNodes("//td[@class='calMaxi']").ToArray();
             HtmlNode[] min = document.DocumentNode.SelectNodes("//td[@class='calMini']").ToArray();
             HtmlNode[] time = document.DocumentNode.SelectNodes("//td[@class='colAktualizacja']").ToArray();
-
 
             //sformatowanie danych i dodanie na liste akcji
             for (int i = 0, j = 0; j < nameOfIndex.Length; ++i, j += 2)
@@ -47,6 +47,7 @@ namespace WpfApplication1
             }
 
             HtmlNode timeOfUpdate = document.DocumentNode.SelectNodes("//time[@class='time']").First();
+            list.TimeOfUpdate = timeOfUpdate.InnerText.ToString().Substring(29);
         }
     }
 }
