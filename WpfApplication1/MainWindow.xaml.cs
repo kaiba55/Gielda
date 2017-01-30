@@ -42,6 +42,7 @@ namespace WpfApplication1
 
         private void prepareCurrency()
         {
+            label70.Content = listCurrency.TimeOfUpdate;
             tableCurrency.preparedTable(dataGrid4, listCurrency);
             preparedStatisticForCurrency();
         }

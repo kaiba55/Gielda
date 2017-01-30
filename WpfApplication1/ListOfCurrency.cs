@@ -9,6 +9,7 @@ namespace WpfApplication1
     class ListOfCurrency
     {
         private List<Currency> listCurrency;
+        protected string timeOfUpdate;
         public ListOfCurrency()
         {
             listCurrency = new List<Currency>();
@@ -22,6 +23,12 @@ namespace WpfApplication1
         public List<Currency> ListCurrency
         {
             get { return listCurrency; }
+        }
+
+        public string TimeOfUpdate
+        {
+            get { return timeOfUpdate; }
+            set { timeOfUpdate = value; }
         }
 
     }

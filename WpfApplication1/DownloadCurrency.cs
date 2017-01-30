@@ -51,6 +51,9 @@ namespace WpfApplication1
                 Currency currency = new Currency(listOfName[k], validator.normalizeCountry(country[k]),validator.normalizeSymbol(symbol[k]), arguments);
                 listCurrency.addCurrency(currency);
              }
+
+            HtmlNode time = document.DocumentNode.SelectNodes("//time[@class='time']").First();
+            listCurrency.TimeOfUpdate = time.InnerText.ToString().Substring(32);
         }
     }
 }
