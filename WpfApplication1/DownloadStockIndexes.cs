@@ -43,11 +43,11 @@ namespace WpfApplication1
                  arguments.Add(validator.validateValue(value[i]));
                  arguments.Add(validator.validateChange(change[i]));
                  arguments.Add(validator.validateChangePercent(changePercent[i]));
-                 arguments.Add(validator.validateMoneyTurnover(moneyTurnover[i]));
                  arguments.Add(validator.validateOpening(opening[i]));
                  arguments.Add(validator.validateMax(max[i]));
                  arguments.Add(validator.validateMin(min[i]));
-                 list.addData(factory.produce(validator.validateNameOfIndex(nameOfIndex[j]), arguments, validator.validateTime(time[i])));
+                 arguments.Add(validator.validateMoneyTurnover(moneyTurnover[i]));
+                list.addData(factory.produce(validator.validateNameOfIndex(nameOfIndex[j]), arguments, validator.validateTime(time[i])));
              }
 
             HtmlNode timeOfUpdate = document.DocumentNode.SelectNodes("//time[@class='time']").First();

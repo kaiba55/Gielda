@@ -19,7 +19,7 @@ namespace WpfApplication1
             listCurrency.Add(currency);
         }
 
-        public List<Currency> ListCurrenct
+        public List<Currency> ListCurrency
         {
             get { return listCurrency; }
         }

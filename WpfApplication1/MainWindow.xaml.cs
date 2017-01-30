@@ -29,6 +29,7 @@ namespace WpfApplication1
         TableCurrency tableCurrency;
         ListOfCurrency listCurrency;
         DownloadCurrency downCurrency;
+        CalculationStatisticsForCurrency calcCurrency;
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -42,6 +43,7 @@ namespace WpfApplication1
         private void prepareCurrency()
         {
             tableCurrency.preparedTable(dataGrid4, listCurrency);
+            preparedStatisticForCurrency();
         }
 
         public void preparedData()
@@ -73,6 +75,7 @@ namespace WpfApplication1
             tableCurrency = new TableCurrency();
             listCurrency=new ListOfCurrency();
             downCurrency = new DownloadCurrency();
+            calcCurrency = new CalculationStatisticsForCurrency();
             downCurrency.download(listCurrency);   
         }
 
@@ -84,11 +87,28 @@ namespace WpfApplication1
             label25.Content = calc[0].minChange(list[0].ListData);
             label27.Content = calc[0].maxChangePercent(list[0].ListData);
             label29.Content = calc[0].minChangePercent(list[0].ListData);
-            label31.Content = calc[0].maxOpening(list[0].ListData);
-            label33.Content = calc[0].minOpening(list[0].ListData);
+            label31.Content = calc[0].maxMoneyTurnover(list[0].ListData);
+            label33.Content = calc[0].minMoneyTurnover(list[0].ListData);
             label35.Content=calc[0].maxTransaction(list[0].ListData);
-            label37.Content = calc[0].maxMoneyTurnover(list[0].ListData);
-            label39.Content = calc[0].minMoneyTurnover(list[0].ListData);
+
+            label37.Content = calc[0].maxOpening(list[0].ListData);
+            label39.Content = calc[0].minOpening(list[0].ListData);
+        }
+
+        void preparedStatisticForCurrency()
+        {
+            label72.Content = calcCurrency.maxPurchaseValue(listCurrency.ListCurrency);
+            label74.Content = calcCurrency.minPurchaseValue(listCurrency.ListCurrency);
+            label76.Content = calcCurrency.maxPurchaseChange(listCurrency.ListCurrency);
+            label78.Content = calcCurrency.minPurchaseChange(listCurrency.ListCurrency);
+            label80.Content = calcCurrency.maxPurchaseChangePercent(listCurrency.ListCurrency);
+            label82.Content = calcCurrency.minPurchaseChangePercent(listCurrency.ListCurrency);
+            label84.Content = calcCurrency.maxSaleValue(listCurrency.ListCurrency);
+            label86.Content = calcCurrency.minSaleValue(listCurrency.ListCurrency);
+            label88.Content = calcCurrency.maxSaleChange(listCurrency.ListCurrency);
+            label90.Content = calcCurrency.minSaleChange(listCurrency.ListCurrency);
+            label92.Content = calcCurrency.maxSaleChangePercent(listCurrency.ListCurrency);
+            label94.Content = calcCurrency.minSaleChangePercent(listCurrency.ListCurrency);
         }
 
         void preparedStatisticForStockIndexes()
@@ -98,11 +118,12 @@ namespace WpfApplication1
             label42.Content = calc[1].maxChange(list[1].ListData);
             label44.Content = calc[1].minChange(list[1].ListData);
             label46.Content = calc[1].maxChangePercent(list[1].ListData);
-            label48.Content = calc[1].minChangePercent(list[1].ListData);
+            label48.Content = calc[1].minChangePercent(list[1].ListData);          
             label50.Content = calc[1].maxOpening(list[1].ListData);
             label52.Content = calc[1].minOpening(list[1].ListData);
             label54.Content = calc[1].maxMoneyTurnover(list[1].ListData);
             label56.Content = calc[1].minMoneyTurnover(list[1].ListData);
+
         }
 
         void preparedStatisticForDebentures()
@@ -177,6 +198,7 @@ namespace WpfApplication1
             if (tab != null)
             {
                 prepareCurrency();
+                
             }
         }
 
@@ -196,6 +218,12 @@ namespace WpfApplication1
         {
             downloader[2].download(list[2]);          
             prepareDebentures();
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            downCurrency.download(listCurrency);
+            prepareCurrency();
         }
     }
 }

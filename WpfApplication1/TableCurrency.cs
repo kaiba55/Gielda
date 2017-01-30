@@ -31,9 +31,9 @@ namespace WpfApplication1
 
            if (grid.Items.Count == 0)
            {
-                for (int i = 0; i < list.ListCurrenct.Count; ++i)
+                for (int i = 0; i < list.ListCurrency.Count; ++i)
                 {
-                    grid.Items.Add(list.ListCurrenct[i]);
+                    grid.Items.Add(list.ListCurrency[i]);
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace WpfApplication1
             columnsForCurrency.addColumn("Nazwa");
             columnsForCurrency.addColumn("Kraj");
             columnsForCurrency.addColumn("Symbol");
-            columnsForCurrency.addColumn("Zakupu");
+            columnsForCurrency.addColumn("Zakup");
             columnsForCurrency.addColumn("Zmiana zakupu");
             columnsForCurrency.addColumn("Zmiana zakupu[%]");
             columnsForCurrency.addColumn("Sprzedaż");

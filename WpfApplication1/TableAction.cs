@@ -45,11 +45,13 @@ namespace WpfApplication1
             columnsForActions.addVariables("Value");
             columnsForActions.addVariables("Change");
             columnsForActions.addVariables("ChangePercent");
+            
             columnsForActions.addVariables("NumberOfTransaction");
+            columnsForActions.addVariables("MoneyTurnover");
             columnsForActions.addVariables("Opening");
             columnsForActions.addVariables("Max");
             columnsForActions.addVariables("Min");
-            columnsForActions.addVariables("MoneyTurnover");
+            
             columnsForActions.addVariables("Time");
 
             columnsForActions.addColumn("Nazwa");
@@ -57,10 +59,12 @@ namespace WpfApplication1
             columnsForActions.addColumn("Zmiana");
             columnsForActions.addColumn("Zmiana procentowa");
             columnsForActions.addColumn("Liczba transakcji");
+            columnsForActions.addColumn("Obrót");
             columnsForActions.addColumn("Otwarcie");
+            
+
             columnsForActions.addColumn("Max");
             columnsForActions.addColumn("Min");
-            columnsForActions.addColumn("Obrót");
             columnsForActions.addColumn("Czas");
         }
 

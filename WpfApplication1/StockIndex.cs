@@ -22,8 +22,8 @@ namespace WpfApplication1
             this.changePercent = listOfArguments[2];
             this.opening = listOfArguments[3];
             this.max = listOfArguments[4];
-            this.min = listOfArguments[5];
-            this.moneyTurnover = listOfArguments[6];
+            this.min = listOfArguments[6];
+            this.moneyTurnover = listOfArguments[5];
             this.time = time;
         }
     }

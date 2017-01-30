@@ -43,9 +43,11 @@ namespace WpfApplication1
                 arguments.Add(validator.normalizeCurrency(value[j]));
                 arguments.Add(validator.normalizeCurrency(change[i]));
                 arguments.Add(validator.normalizeChangePercent(change[i+1]));//
+
+                arguments.Add(validator.normalizeCurrency(value[j + 1]));
                 arguments.Add(validator.normalizeCurrency(change[i+2]));
                 arguments.Add(validator.normalizeChangePercent(change[i + 3]));//
-                arguments.Add(validator.normalizeCurrency(value[j+1]));
+                
                 Currency currency = new Currency(listOfName[k], validator.normalizeCountry(country[k]),validator.normalizeSymbol(symbol[k]), arguments);
                 listCurrency.addCurrency(currency);
              }

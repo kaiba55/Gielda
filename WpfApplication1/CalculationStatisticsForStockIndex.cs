@@ -10,7 +10,7 @@ namespace WpfApplication1
     {
         public override string minMoneyTurnover(List<Data> listData)
         {
-            var min = listData.Max(x => x.MoneyTurnover);
+            var min = listData.Min(x => x.MoneyTurnover);
             var name = listData.Where(elem => elem.MoneyTurnover == min);
             if (name.Count() == 1)
                 return name.First().Name + ": " + min.ToString();
