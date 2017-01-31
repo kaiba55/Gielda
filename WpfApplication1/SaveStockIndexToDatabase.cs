@@ -18,7 +18,7 @@ namespace WpfApplication1
                     { "change",elem.Change},
                     { "changePercent", elem.ChangePercent },
                     { "opening", elem.Opening},
-                    { "max;", elem.Max },
+                    { "max", elem.Max },
                     { "min", elem.Min },
                     { "moneyTurnover",elem.MoneyTurnover },
                     { "time", elem.Time }

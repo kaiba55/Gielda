@@ -10,7 +10,7 @@ namespace WpfApplication1
     class DownloadDebentures : IDownloadable
     {
         private DataValidater validator;
-        private DataFactory factory;
+        private IDataFactory factory;
         public DownloadDebentures()
         {
             validator = new DataValidater();

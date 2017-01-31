@@ -86,7 +86,7 @@
     <Compile Include="CurrencyConverter.cs" />
     <Compile Include="CurrencyValidator.cs" />
     <Compile Include="Data.cs" />
-    <Compile Include="DataFactory.cs" />
+    <Compile Include="IDataFactory.cs" />
     <Compile Include="DbConnection.cs" />
     <Compile Include="Debentures.cs" />
     <Compile Include="DebenturesFactory.cs" />
@@ -102,6 +102,10 @@
     <Compile Include="ListOfDebentures.cs" />
     <Compile Include="ListOfStockIndex.cs" />
     <Compile Include="NameOfColums.cs" />
+    <Compile Include="ReadActionFromDatabase.cs" />
+    <Compile Include="ReadDataFromDatabase.cs" />
+    <Compile Include="ReadDebenturesFromDatabase.cs" />
+    <Compile Include="ReadStockIndexFromDatabase.cs" />
     <Compile Include="SaveActionToDatabase.cs" />
     <Compile Include="SaveDataToDatabase.cs" />
     <Compile Include="SaveDebenturesToDatabase.cs" />

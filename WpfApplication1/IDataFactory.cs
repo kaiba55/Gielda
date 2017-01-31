@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WpfApplication1
 {
-    interface DataFactory
+    interface IDataFactory
     {
         Data produce(string name, List<double> listOfArguments, string time);
     }

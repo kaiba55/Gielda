@@ -10,7 +10,7 @@ namespace WpfApplication1
     class DownloadStockIndexes : IDownloadable
     {
         private DataValidater validator;
-        private DataFactory factory;
+        private IDataFactory factory;
         public DownloadStockIndexes():base()
         {
             validator = new DataValidater();

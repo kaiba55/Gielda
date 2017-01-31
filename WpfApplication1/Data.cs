@@ -10,7 +10,6 @@ namespace WpfApplication1
     //ogolna klasa do obslugi danych
     class Data
     {
-        public ObjectId id;
         protected string name;
         protected double value;
         protected double change;
