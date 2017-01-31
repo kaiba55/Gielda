@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,12 +20,15 @@ namespace WpfApplication1
         public void save(ListOfData list)
         {
             whatSave += list.TimeOfUpdate;
-            var collection = connection.Db.GetCollection<BsonDocument>(whatSave);   
-            foreach (var elem in list.ListData)
-            {
-                var document = preparedBsonDocument(elem);
-                collection.InsertOne(document);
-            }         
+            var collection = connection.Db.GetCollection<BsonDocument>(whatSave);
+            var count = collection.AsQueryable().ToList().Count;
+
+            if(count==0)
+                foreach (var elem in list.ListData)
+                {
+                    var document = preparedBsonDocument(elem);
+                    collection.InsertOne(document);
+                }         
          }
 
         abstract public BsonDocument preparedBsonDocument(Data elem);

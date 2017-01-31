@@ -146,11 +146,11 @@ namespace WpfApplication1
             label7.Content = list[0].TimeOfUpdate;
             preparedStatisticForAction();
 
-            /*SaveDataToDatabase saveDb = new SaveActionToDatabase();
+            SaveDataToDatabase saveDb = new SaveActionToDatabase();
             saveDb.WhatSave = "Action";
             saveDb.save(list[0]);
 
-            ReadDataFromDatabase readDb = new ReadActionFromDatabase();
+          /*  ReadDataFromDatabase readDb = new ReadActionFromDatabase();
             readDb.WhatRead = "Action2017-01-31 13:02";
             readDb.read(list[0]);
             int a = 7;*/
