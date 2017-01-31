@@ -30,13 +30,13 @@ namespace WpfApplication1
                 }
             }
 
-            if (grid.Items.Count == 0)
+
+            grid.Items.Clear();
+            for (int i = 0; i < list.ListData.Count; ++i)
             {
-                for (int i = 0; i < list.ListData.Count; ++i)
-                {
-                    grid.Items.Add(list.ListData[i]);
-                }
+                grid.Items.Add(list.ListData[i]);
             }
+
         }
 
         public void preparedColumn()

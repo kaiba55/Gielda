@@ -35,5 +35,29 @@ namespace WpfApplication1
         {
             get { return db; }
         }
+
+        public List<string> listOfCollection(string type)
+        {
+            List<string> list = new List<string>();
+            List<string> list2 = new List<string>();
+            var listOfCollection = db.ListCollections().ToList();
+
+            foreach (var x in listOfCollection)
+            {
+                list.Add(x["name"].AsString);
+            }
+
+            foreach (var x in list.Where(w => w.StartsWith(type)))
+            {
+                list2.Add(x);
+            }
+
+            for (int i=0;i<list2.Count;++i)
+            {
+                list2[i]=list2[i].Replace(type, "");
+            }
+           
+            return list2;
+        }
     }
 }

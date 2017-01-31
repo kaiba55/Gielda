@@ -150,14 +150,30 @@ namespace WpfApplication1
             table[0].preparedTable(dataGrid, list[0]);
             label7.Content = list[0].TimeOfUpdate;
             preparedStatisticForAction();
-
             saveDb[0].WhatSave = "Action";
-            saveDb[0].save(list[0]);
+        }
 
-          /*  ReadDataFromDatabase readDb = new ReadActionFromDatabase();
-            readDb.WhatRead = "Action2017-01-31 13:02";
-            readDb.read(list[0]);
-            int a = 7;*/
+        public void preparedArchivedCombobox()
+        {
+            DbConnection db = DbConnection.Instance;
+            List < string > list1 = db.listOfCollection("Action");
+            List<string> list2 = db.listOfCollection("StockIndex");
+            List<string> list3 = db.listOfCollection("Debentures");
+
+            foreach(var x in list1)
+            {
+                comboBox3.Items.Add(x);
+            }
+
+            foreach (var x in list2)
+            {
+                comboBox4.Items.Add(x);
+            }
+
+            foreach (var x in list3)
+            {
+                comboBox5.Items.Add(x);
+            }
         }
 
         public void prepareStockIndexes()
@@ -184,7 +200,7 @@ namespace WpfApplication1
             InitializeComponent();
             CenterWindowOnScreen();
             preparedCombobox();
-
+            preparedArchivedCombobox();
         }
 
         private void preparedCombobox()
@@ -199,7 +215,6 @@ namespace WpfApplication1
                 comboBox.Items.Add(elem);
                 comboBox1.Items.Add(elem);
             }
-
         }
         private void OnTab1Selected(object sender, RoutedEventArgs e)
         {
@@ -280,6 +295,39 @@ namespace WpfApplication1
                 textBox.Text = "Wpisz liczbę";
             }
             
+        }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            ReadDataFromDatabase readDb = new ReadActionFromDatabase();
+            string data = comboBox3.SelectionBoxItem.ToString();
+            readDb.WhatRead = "Action" + data;
+            readDb.read(list[0]);
+            table[0].preparedTable(dataGrid, list[0]);
+            label7.Content = list[0].TimeOfUpdate;
+            preparedStatisticForAction();
+        }
+
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            ReadDataFromDatabase readDb = new ReadStockIndexFromDatabase();
+            string data = comboBox4.SelectionBoxItem.ToString();
+            readDb.WhatRead = "StockIndex" + data;
+            readDb.read(list[1]);
+            table[1].preparedTable(dataGrid2, list[1]);
+            label8.Content = list[1].TimeOfUpdate;
+            preparedStatisticForStockIndexes();
+        }
+
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+            ReadDataFromDatabase readDb = new ReadDebenturesFromDatabase();
+            string data = comboBox5.SelectionBoxItem.ToString();
+            readDb.WhatRead = "Debentures" + data;
+            readDb.read(list[2]);
+            table[2].preparedTable(dataGrid3, list[2]);
+            label9.Content = list[2].TimeOfUpdate;
+            preparedStatisticForDebentures();
         }
     }
 }
