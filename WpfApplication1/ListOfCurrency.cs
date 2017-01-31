@@ -31,5 +31,15 @@ namespace WpfApplication1
             set { timeOfUpdate = value; }
         }
 
+        public List<string> preparedListSymbol()
+        {
+            List<string> list = new List<string>();
+            foreach(var currency in listCurrency)
+            {
+                list.Add(currency.Symbol);
+            }
+            return list;
+        }
+
     }
 }

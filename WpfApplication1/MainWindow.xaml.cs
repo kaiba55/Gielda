@@ -164,7 +164,24 @@ namespace WpfApplication1
         {
             preparedData();
             InitializeComponent();
-            CenterWindowOnScreen();         
+            CenterWindowOnScreen();
+            preparedCombobox();
+
+        }
+
+        private void preparedCombobox()
+        {
+            comboBox2.Items.Add("Kursu sprzedaży");
+            comboBox2.Items.Add("Kursu zakupu");
+            List<string> list = listCurrency.preparedListSymbol();
+            comboBox.Items.Add("1 PLN");
+            comboBox1.Items.Add("1 PLN");
+            foreach (var elem in list)
+            {
+                comboBox.Items.Add(elem);
+                comboBox1.Items.Add(elem);
+            }
+
         }
         private void OnTab1Selected(object sender, RoutedEventArgs e)
         {
@@ -198,8 +215,7 @@ namespace WpfApplication1
             var tab = sender as TabItem;
             if (tab != null)
             {
-                prepareCurrency();
-                
+                prepareCurrency();        
             }
         }
 
@@ -225,6 +241,27 @@ namespace WpfApplication1
         {
             downCurrency.download(listCurrency);
             prepareCurrency();
+        }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            textBox1.Text = "";
+            CurrencyConverter converter = new CurrencyConverter();
+            double value = 1 ;
+            try
+            {
+                value = Convert.ToDouble(textBox.Text);
+                string selected = comboBox.SelectionBoxItem.ToString(); //z
+                string selected2 = comboBox1.SelectionBoxItem.ToString();//
+                string selected3 = comboBox2.SelectionBoxItem.ToString();//kurs
+
+                textBox1.Text = converter.convert(listCurrency, selected, selected2, selected3, value).ToString();
+            }
+            catch(Exception)
+            {
+                textBox.Text = "Wpisz liczbę";
+            }
+            
         }
     }
 }

@@ -83,6 +83,7 @@
     <Compile Include="CalculationStatisticsForAction.cs" />
     <Compile Include="CalculationStatisticsForData.cs" />
     <Compile Include="Currency.cs" />
+    <Compile Include="CurrencyConverter.cs" />
     <Compile Include="CurrencyValidator.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataFactory.cs" />
