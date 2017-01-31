@@ -92,7 +92,7 @@ namespace WpfApplication1
         public string minPurchaseChangePercent(List<Currency> listCurrency)
         {
             var min = listCurrency.Min(x => x.PurchaseChangePercent);
-            var name = listCurrency.Where(elem => elem.PurchaseChange == min);
+            var name = listCurrency.Where(elem => elem.PurchaseChangePercent == min);
             if (name.Count() == 1)
                 return name.First().Symbol + ": " + min.ToString();
             else
@@ -190,7 +190,7 @@ namespace WpfApplication1
         public string minSaleChangePercent(List<Currency> listCurrency)
         {
             var min = listCurrency.Min(x => x.SaleChangePercent);
-            var name = listCurrency.Where(elem => elem.SaleChange == min);
+            var name = listCurrency.Where(elem => elem.SaleChangePercent == min);
             if (name.Count() == 1)
                 return name.First().Symbol + ": " + min.ToString();
             else

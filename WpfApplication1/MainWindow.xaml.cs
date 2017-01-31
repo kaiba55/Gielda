@@ -24,7 +24,7 @@ namespace WpfApplication1
         private List<ListOfData> list;
         private List<IDownloadable> downloader;
         private List<CalculationStatisticsForData> calc;
-
+        private List<SaveDataToDatabase> saveDb;
         //do pobierania walut
         TableCurrency tableCurrency;
         ListOfCurrency listCurrency;
@@ -78,7 +78,12 @@ namespace WpfApplication1
             listCurrency=new ListOfCurrency();
             downCurrency = new DownloadCurrency();
             calcCurrency = new CalculationStatisticsForCurrency();
-            downCurrency.download(listCurrency);   
+            downCurrency.download(listCurrency);
+
+            saveDb = new List<SaveDataToDatabase>();
+            saveDb.Add(new SaveActionToDatabase());
+            saveDb.Add(new SaveStockIndexToDatabase());
+            saveDb.Add(new SaveStockIndexToDatabase());
         }
 
         void preparedStatisticForAction()
@@ -146,9 +151,8 @@ namespace WpfApplication1
             label7.Content = list[0].TimeOfUpdate;
             preparedStatisticForAction();
 
-            SaveDataToDatabase saveDb = new SaveActionToDatabase();
-            saveDb.WhatSave = "Action";
-            saveDb.save(list[0]);
+            saveDb[0].WhatSave = "Action";
+            saveDb[0].save(list[0]);
 
           /*  ReadDataFromDatabase readDb = new ReadActionFromDatabase();
             readDb.WhatRead = "Action2017-01-31 13:02";
@@ -161,6 +165,8 @@ namespace WpfApplication1
             table[1].preparedTable(dataGrid2, list[1]);
             label8.Content = list[1].TimeOfUpdate;
             preparedStatisticForStockIndexes();
+            saveDb[1].WhatSave = "StockIndex";
+            saveDb[1].save(list[1]);
         }
 
         public void prepareDebentures()
@@ -168,6 +174,8 @@ namespace WpfApplication1
             table[2].preparedTable(dataGrid3, list[2]);
             label9.Content = list[2].TimeOfUpdate;
             preparedStatisticForDebentures();
+            saveDb[2].WhatSave = "Debentures";
+            saveDb[2].save(list[2]);
         }
 
         public MainWindow()
