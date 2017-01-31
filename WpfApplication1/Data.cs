@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace WpfApplication1
     //ogolna klasa do obslugi danych
     class Data
     {
+        public ObjectId id;
         protected string name;
         protected double value;
         protected double change;

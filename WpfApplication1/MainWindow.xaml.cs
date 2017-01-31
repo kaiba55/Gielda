@@ -30,6 +30,7 @@ namespace WpfApplication1
         ListOfCurrency listCurrency;
         DownloadCurrency downCurrency;
         CalculationStatisticsForCurrency calcCurrency;
+
         private void CenterWindowOnScreen()
         {
             double screenWidth = System.Windows.SystemParameters.PrimaryScreenWidth;
@@ -144,6 +145,9 @@ namespace WpfApplication1
             table[0].preparedTable(dataGrid, list[0]);
             label7.Content = list[0].TimeOfUpdate;
             preparedStatisticForAction();
+            SaveDataToDatabase saveDb = new SaveActionToDatabase();
+            saveDb.WhatSave = "Action";
+            saveDb.save(list[0]);
         }
 
         public void prepareStockIndexes()
